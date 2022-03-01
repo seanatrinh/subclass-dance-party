@@ -1,5 +1,6 @@
 var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   // calling makeDancer superclass with .call to bind blinkyDance to makeDancer's properties
+  this.$node = $('<span class="blinky-dancer"></span>');
   makeDancer.call(this, top, left, timeBetweenSteps);
 };
 
@@ -17,4 +18,14 @@ makeBlinkyDancer.prototype.step = function() {
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
   this.$node.toggle();
+};
+
+makeBlinkyDancer.prototype.setPosition = function (top, left) {
+  // Use css top and left properties to position our <span> tag
+  // where it belongs on the page. See http://api.jquery.com/css/
+  var styleSettings = {
+    top: top,
+    left: left
+  };
+  this.$node.css(styleSettings);
 };
