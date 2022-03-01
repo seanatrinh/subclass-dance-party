@@ -1,8 +1,6 @@
 var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   // calling makeDancer superclass with .call to bind blinkyDance to makeDancer's properties
   makeDancer.call(this, top, left, timeBetweenSteps);
-
-
 };
 
 // add makeDancer's methods to makeBlinkyDancer
