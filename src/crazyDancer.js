@@ -8,7 +8,7 @@ makeCrazyDancer.prototype = Object.create(makeDancer.prototype);
 makeCrazyDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this);
   // add custom crazy dancer animation here
-  this.$node.effect('bounce', 'slow');
+  // this.$node.effect('bounce', 'slow');
 };
 
 makeCrazyDancer.prototype.setPosition = function (top, left) {

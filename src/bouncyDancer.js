@@ -8,9 +8,6 @@ makeBouncyDancer.prototype = Object.create(makeDancer.prototype);
 
 makeBouncyDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this);
-
-  this.$node.slideUp('slow');
-
 };
 
 makeBouncyDancer.prototype.setPosition = function (top, left) {
