@@ -29,13 +29,51 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
 
     window.dancers.push(dancer);
+
+    $('.crazy-dancer').mouseover(function() {
+      console.log('mouse went over');
+      var colorSetting = {
+        border: '30px solid rgb(255, 0, 0)'
+      };
+      this.$node.css(colorSetting);
+    });
+
   });
 
   $('.addLineUpButton').on('click', function(event) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      var currentDancer = window.dancers[i];
+      currentDancer.lineUp( $('body').width() * 0.1 );
+    }
+  });
+
+  $('.addInteractButton').on('click', function(event) {
     console.log('clicked');
     for (var i = 0; i < window.dancers.length; i++) {
       var currentDancer = window.dancers[i];
-      currentDancer.lineUp( $('body').width() * 0.1);
+      // if index is 0, set position somehow (maybe similar to add line up button?)
+      if (i === 0) {
+        currentDancer.setPosition('50%', '50%');
+        // argument for lineUp(dancer[1]) =
+        // whatever the dancer[0] position + 1, will be the first argument for the next index
+      } else {
+        var getOffSet = function(firstDancer) {
+          // console.log(firstDancer);
+          var currentDancerLoc = firstDancer.$node[0].getBoundingClientRect();
+          return {
+            left: currentDancerLoc.left + window.scrollX,
+            top: currentDancerLoc.top + window.scrollY
+          };
+        };
+
+        var prevDancerLocObj = getOffSet(window.dancers[i - 1]);
+        var prevDancerX = prevDancerLocObj.left;
+        var prevDancerY = prevDancerLocObj.top;
+        console.log(prevDancerX, '||', prevDancerY);
+
+        currentDancer.setPosition(prevDancerX * 0.4, prevDancerY * 0.2);
+        // otherwise, set position relative to position of currentDancer[i - 1]1
+      }
     }
   });
 

@@ -38,3 +38,10 @@ makeDancer.prototype.lineUp = function(left) {
   };
   this.$node.css(lineUpSettings);
 };
+
+// makeDancer.prototype.interact = function() {
+//   var interactSettings = {
+
+//   };
+//   this.$node.css(interactSettings);
+// };
