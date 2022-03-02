@@ -37,7 +37,8 @@ body, a:link, a:visited, a:active{
 }
 
 .crazy-dancer{
-  border:20px solid rgb(252, 237, 66);
+  border:20px solid;
+  border-color: rgb(252, 237, 66);
   border-radius:2px;
   position:absolute;
   animation: rotation 0.1s infinite linear;

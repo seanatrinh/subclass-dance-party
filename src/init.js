@@ -31,11 +31,10 @@ $(document).ready(function() {
     window.dancers.push(dancer);
 
     $('.crazy-dancer').mouseover(function() {
-      console.log('mouse went over');
       var colorSetting = {
-        border: '30px solid rgb(255, 0, 0)'
+        'border-color': 'rgb(255, 0, 0)'
       };
-      this.$node.css(colorSetting);
+      $('.crazy-dancer').css(colorSetting);
     });
 
   });

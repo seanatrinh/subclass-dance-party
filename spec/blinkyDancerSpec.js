@@ -6,7 +6,6 @@ describe('blinkyDancer', function() {
   beforeEach(function() {
     clock = sinon.useFakeTimers();
     blinkyDancer = new makeBlinkyDancer(10, 20, timeBetweenSteps);
-    console.log(blinkyDancer);
   });
 
   it('should have a jQuery $node object', function() {
@@ -33,3 +32,27 @@ describe('blinkyDancer', function() {
     });
   });
 });
+
+describe('crazyDancer', function() {
+  var crazyDancer, clock;
+  var timeBetweenSteps = 100;
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    crazyDancer = new makeCrazyDancer(10, 20, timeBetweenSteps);
+  });
+
+  it('should have a jQuery $node object', function() {
+    expect(crazyDancer.$node).to.be.an.instanceof(jQuery);
+  });
+
+  it('should spin with CSS configurations', function() {
+    // expect the css attribute to have 'animation: '
+    // expect($('.crazy-dancer').css('animation')).to.eql('rotation 0.1s infinite linear');
+    var element = crazyDancer.$node[0];
+    var style = getComputedStyle(element);
+    console.log(style);
+  });
+
+});
+
